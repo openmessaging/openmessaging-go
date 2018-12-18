@@ -50,9 +50,9 @@ type MessagingAccessPoint interface {
 	 * Creates a new {@code Producer} for the specified {@code MessagingAccessPoint}.
 	 *
 	 * @return the created {@code Producer}
-	 * @throws OMSRuntimeException if the {@code MessagingAccessPoint} fails to handle this request due to some internal
+	 * @return error if the {@code MessagingAccessPoint} fails to handle this request due to some internal
 	 * error
-	 * @throws OMSSecurityException if have no authority to create a producer.
+	 * @return error if have no authority to create a producer.
 	 */
 	CreateProducer() (Producer, error)
 
@@ -62,9 +62,9 @@ type MessagingAccessPoint interface {
 	 *
 	 * @param transactionStateCheckListener transactional check listener {@link TransactionStateCheckListener}
 	 * @return the created {@code Producer}
-	 * @throws OMSRuntimeException if the {@code MessagingAccessPoint} fails to handle this request due to some internal
+	 * @return error if the {@code MessagingAccessPoint} fails to handle this request due to some internal
 	 * error
-	 * @throws OMSSecurityException if have no authority to create a producer.
+	 * @return error if have no authority to create a producer.
 	 */
 	CreateTransactionProducer(transactionStateCheckListener TransactionStateCheckListener) (Producer, error)
 
@@ -73,9 +73,9 @@ type MessagingAccessPoint interface {
 	 * isn't bind to any queue, uses {@link Consumer#bindQueue(String, MessageListener)} to bind queues.
 	 *
 	 * @return the created {@code PushConsumer}
-	 * @throws OMSRuntimeException if the {@code MessagingAccessPoint} fails to handle this request due to some internal
+	 * @return error if the {@code MessagingAccessPoint} fails to handle this request due to some internal
 	 * error
-	 * @throws OMSSecurityException if have no authority to create a consumer.
+	 * @return error if have no authority to create a consumer.
 	 */
 	CreateConsumer() (Consumer, error)
 
@@ -83,9 +83,9 @@ type MessagingAccessPoint interface {
 	 * Gets a lightweight {@code ResourceManager} instance from the specified {@code MessagingAccessPoint}.
 	 *
 	 * @return the resource manger
-	 * @throws OMSRuntimeException if the {@code MessagingAccessPoint} fails to handle this request due to some internal
+	 * @return error if the {@code MessagingAccessPoint} fails to handle this request due to some internal
 	 * error
-	 * @throws OMSSecurityException if have no authority to obtain a resource manager.
+	 * @return error if have no authority to obtain a resource manager.
 	 */
 	ResourceManager() (ResourceManager, error)
 }

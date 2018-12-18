@@ -55,7 +55,7 @@ type KeyValue interface {
 	 * @param key the key to be placed into this {@code KeyValue} object
 	 * @param value the value corresponding to <tt>key</tt>
 	 */
-	Put(key string, value string) (KeyValue, error)
+	PutString(key string, value string) (KeyValue, error)
 
 	/**
 	 * Searches for the {@code short} property with the specified key in this {@code KeyValue} object. If the key is not
@@ -115,8 +115,8 @@ type KeyValue interface {
 	 *
 	 * @return the key set view of this {@code KeyValue} object.
 	 */
-	 //todo
-	//Set<String> KeySet()
+	//todo
+	KeySet() ([]string, error)
 
 	/**
 	 * Tests if the specified {@code String} is a key in this {@code KeyValue}.

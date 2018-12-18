@@ -30,11 +30,11 @@ type Producer interface {
      *
      * @param message a message will be sent.
      * @return the successful {@code SendResult}.
-     * @throws OMSSecurityException when have no authority to send messages to a given destination.
-     * @throws OMSMessageFormatException when an invalid message is specified.
-     * @throws OMSTimeOutException when the given timeout elapses before the send operation completes.
-     * @throws OMSDestinationException when have no given destination in the server.
-     * @throws OMSRuntimeException when the {@code Producer} fails to send the message due to some internal error.
+     * @return error when have no authority to send messages to a given destination.
+     * @return error when an invalid message is specified.
+     * @return error when the given timeout elapses before the send operation completes.
+     * @return error when have no given destination in the server.
+     * @return error when the {@code Producer} fails to send the message due to some internal error.
      */
 	Send(message Message) (SendResult, error)
 
@@ -68,8 +68,7 @@ type Producer interface {
 	 *
 	 * @param messages messages to be sent.
 	 */
-	 //todo
-	//SendBatch(List<Message> messages) error
+	SendBatch(messages []Message) error
 
 	/**
 	 * Adds a {@code ProducerInterceptor} to intercept send operations of producer.
@@ -97,12 +96,12 @@ type Producer interface {
 	 *
 	 * @param message a prepare transactional message will be sent.
 	 * @return the successful {@code SendResult}.
-	 * @throws OMSSecurityException when have no authority to send messages to a given destination.
-	 * @throws OMSMessageFormatException when an invalid message is specified.
-	 * @throws OMSTimeOutException when the given timeout elapses before the send operation completes.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code Producer} fails to send the message due to some internal error.
-	 * @throws OMSTransactionException when used normal producer which haven't register {@link TransactionStateCheckListener}.
+	 * @return error when have no authority to send messages to a given destination.
+	 * @return error when an invalid message is specified.
+	 * @return error when the given timeout elapses before the send operation completes.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code Producer} fails to send the message due to some internal error.
+	 * @return error when used normal producer which haven't register {@link TransactionStateCheckListener}.
 	 */
 	Prepare(message Message) (TransactionalResult, error)
 }

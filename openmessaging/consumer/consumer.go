@@ -29,7 +29,7 @@ type Consumer interface {
      * This method resumes the {@code Consumer} instance after it was suspended. The instance will not receive new
      * messages between the suspend and resume calls.
      *
-     * @throws OMSRuntimeException if the instance has not been suspended.
+     * @return error if the instance has not been suspended.
      * @see Consumer#suspend()
      */
 	Resume() error
@@ -42,7 +42,7 @@ type Consumer interface {
 	 * <p>
 	 * This method behaves exactly as if it simply performs the call {@code suspend(0)}.
 	 *
-	 * @throws OMSRuntimeException if the instance is not currently running.
+	 * @return error if the instance is not currently running.
 	 * @see Consumer#resume()
 	 */
 	Suspend() error
@@ -57,7 +57,7 @@ type Consumer interface {
 	 * suspend, and the consumer will be suspended until it is resumed if the timeout is zero.
 	 *
 	 * @param timeout the maximum time to suspend in milliseconds.
-	 * @throws OMSRuntimeException if the instance is not currently running.
+	 * @return error if the instance is not currently running.
 	 */
 	SuspendWithLimit(timeout int64) error
 
@@ -76,9 +76,9 @@ type Consumer interface {
 	 * coming.
 	 *
 	 * @param queueName a specified queue.
-	 * @throws OMSSecurityException when have no authority to bind to this queue.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code Producer} fails to send the message due to some internal error.
+	 * @return error when have no authority to bind to this queue.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code Producer} fails to send the message due to some internal error.
 	 */
 	BindQueue(queueName string) error
 
@@ -90,9 +90,9 @@ type Consumer interface {
 	 *
 	 * @param queueName a specified queue.
 	 * @param listener a specified listener to receive new message.
-	 * @throws OMSSecurityException when have no authority to bind to this queue.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code Producer} fails to send the message due to some internal error.
+	 * @return error when have no authority to bind to this queue.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code Producer} fails to send the message due to some internal error.
 	 */
 	BindQueueWithListener(queueName string, listener MessageListener) error
 
@@ -127,9 +127,9 @@ type Consumer interface {
 	 *
 	 * @param timeout receive message will blocked at most <code>timeout</code> milliseconds.
 	 * @return the next message received from the bind queues, or null if the consumer is concurrently shut down.
-	 * @throws OMSSecurityException when have no authority to receive messages from this queue.
-	 * @throws OMSTimeOutException when the given timeout elapses before the send operation completes.
-	 * @throws OMSRuntimeException when the {@code Producer} fails to send the message due to some internal error.
+	 * @return error when have no authority to receive messages from this queue.
+	 * @return error when the given timeout elapses before the send operation completes.
+	 * @return error when the {@code Producer} fails to send the message due to some internal error.
 	 */
 
 	Receive(timeout int64) (Message, error)

@@ -24,11 +24,10 @@ type ResourceManager interface {
 	* that they have their own isolated instance of the global OMS resources.
 	*
 	* @param nsName the name of the new namespace.
-	* @throws OMSSecurityException when have no authority to create namespace.
-	* @throws OMSTimeOutException when the given timeout elapses before the create operation completes.
-	* @throws OMSDestinationException when this given destination has been created in the server.
-	* @throws OMSRuntimeException when the {@code ResourceManager} fails to create namespace due to some internal
-	* error.
+	* @return error when have no authority to create namespace.
+	* @return error when the given timeout elapses before the create operation completes.
+	* @return error when this given destination has been created in the server.
+	* @return error when the {@code ResourceManager} fails to create namespace due to some internal error.
 	*/
 	CreateNamespace(nsName string) error
 
@@ -36,11 +35,10 @@ type ResourceManager interface {
 	 * Deletes an existing namespace.
 	 *
 	 * @param nsName the namespace needs to be deleted.
-	 * @throws OMSSecurityException when have no authority to delete this namespace.
-	 * @throws OMSTimeOutException when the given timeout elapses before the delete operation completes.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to delete the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to delete this namespace.
+	 * @return error when the given timeout elapses before the delete operation completes.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code ResourceManager} fails to delete the namespace due to some internal error.
 	 */
 
 	DeleteNamespace(nsName string) error
@@ -49,11 +47,10 @@ type ResourceManager interface {
 	 * Switch to an existing namespace.
 	 *
 	 * @param targetNamespace the namespace needs to be switched.
-	 * @throws OMSSecurityException when have no authority to delete this namespace.
-	 * @throws OMSTimeOutException when the given timeout elapses before the delete operation completes.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to delete the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to delete this namespace.
+	 * @return error when the given timeout elapses before the delete operation completes.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code ResourceManager} fails to delete the namespace due to some internal error.
 	 */
 	SwitchNamespace(targetNamespace string) error
 
@@ -61,13 +58,12 @@ type ResourceManager interface {
 	 * Gets the namespace list in the current {@code MessagingAccessPoint}.
 	 *
 	 * @return the set of all namespaces.
-	 * @throws OMSSecurityException when have no authority to delete this namespace.
-	 * @throws OMSTimeOutException when the given timeout elapses before the list operation completes.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to list the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to delete this namespace.
+	 * @return error when the given timeout elapses before the list operation completes.
+	 * @return error when the {@code ResourceManager} fails to list the namespace due to some internal error.
 	 */
-	//todo
-	ListNamespaces() (error);
+	 //todo need refactor <set>
+	ListNamespaces() ([]string, error);
 
 	/**
 	 * Creates a {@code Queue} resource in the configured namespace with some preset attributes.
@@ -77,11 +73,10 @@ type ResourceManager interface {
 	 * {@literal <namespace_name>://<queue_name>}
 	 *
 	 * @param queueName the name of the new queue.
-	 * @throws OMSSecurityException when have no authority to create this queue.
-	 * @throws OMSTimeOutException when the given timeout elapses before the create operation completes.
-	 * @throws OMSDestinationException when the given destination has been created in the server.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to delete the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to create this queue.
+	 * @return error when the given timeout elapses before the create operation completes.
+	 * @return error when the given destination has been created in the server.
+	 * @return error when the {@code ResourceManager} fails to delete the namespace due to some internal error.
 	 */
 	CreateQueue(queueName string) error
 
@@ -89,11 +84,10 @@ type ResourceManager interface {
 	 * Deletes an existing queue resource.
 	 *
 	 * @param queueName the queue needs to be deleted.
-	 * @throws OMSSecurityException when have no authority to delete this namespace.
-	 * @throws OMSTimeOutException when the given timeout elapses before the delete operation completes.
-	 * @throws OMSDestinationException when have no given destination in the server.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to delete the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to delete this namespace.
+	 * @return error when the given timeout elapses before the delete operation completes.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code ResourceManager} fails to delete the namespace due to some internal error.
 	 */
 	DeleteQueue(queueName string) error
 
@@ -102,13 +96,12 @@ type ResourceManager interface {
 	 *
 	 * @param nsName the specific namespace.
 	 * @return the set of queues exists in current namespace.
-	 * @throws OMSSecurityException when have no authority to delete this namespace.
-	 * @throws OMSTimeOutException when the given timeout elapses before the list operation completes.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to list the namespace due to some internal
-	 * error.
+	 * @return error when have no authority to delete this namespace.
+	 * @return error when the given timeout elapses before the list operation completes.
+	 * @return error when the {@code ResourceManager} fails to list the namespace due to some internal error.
 	 */
-	//todo
-	ListQueues(nsName string) (error)
+	 //todo
+	ListQueues(nsName string) ([]string, error)
 
 	/**
 	 * In order to enable consumers to get the message in the specified mode, the filter rule follows the sql standard
@@ -116,10 +109,9 @@ type ResourceManager interface {
 	 *
 	 * @param queueName queue name.
 	 * @param filterString SQL expression to filter out messages.
-	 * @throws OMSSecurityException when have no authority to add this filter.
-	 * @throws OMSTimeOutException when the given timeout elapses before the add filter operation completes.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to add a new filter due to some internal
-	 * error.
+	 * @return error when have no authority to add this filter.
+	 * @return error when the given timeout elapses before the add filter operation completes.
+	 * @return error when the {@code ResourceManager} fails to add a new filter due to some internal error.
 	 */
 	Filter(queueName string, filterString string) error
 
@@ -128,10 +120,9 @@ type ResourceManager interface {
 	 *
 	 * @param sourceQueue source queue, process messages received from producer and duplicate those to target queue.
 	 * @param targetQueue receive messages from source queue.
-	 * @throws OMSSecurityException when have no authority to add this routing.
-	 * @throws OMSTimeOutException when the given timeout elapses before the routing operation completes.
-	 * @throws OMSRuntimeException when the {@code ResourceManager} fails to add a new routing due to some internal
-	 * error.
+	 * @return error when have no authority to add this routing.
+	 * @return error when the given timeout elapses before the routing operation completes.
+	 * @return error when the {@code ResourceManager} fails to add a new routing due to some internal error.
 	 */
 	Routing(sourceQueue string, targetQueue string) error
 }
