@@ -115,7 +115,6 @@ type KeyValue interface {
 	 *
 	 * @return the key set view of this {@code KeyValue} object.
 	 */
-	//todo
 	KeySet() ([]string, error)
 
 	/**

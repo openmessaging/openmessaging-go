@@ -42,25 +42,24 @@ type Producer interface {
 	 * Sends a message to the specified destination asynchronously, the destination should be preset to {@link
 	 * Message#headers()}, other header fields as well.
 	 * <p>
-	 * The returned {@code Promise} will have the result once the operation completes, and the registered {@code
-	 * FutureListener} will be notified, either because the operation was successful or because of an error.
+	 * The returned {@code *chan SendResult} will have the result once the operation completes, and the SendResult {@code
+	 * SendResult} will be set to the channel, either because the operation was successful or because of an error.
 	 *
 	 * @param message a message will be sent.
-	 * @return the {@code Promise} of an asynchronous message send operation.
+	 * @return the {@code *chan SendResult} of an asynchronous message send operation.
 	 * @see Future
 	 * @see FutureListener
 	 */
-	 //todo
-	SendAsync(message Message) error
+	SendAsync(message Message) (*chan SendResult, error)
 
 	/**
 	 * <p>
-	 * There is no {@code Promise} related or {@code RuntimeException} thrown. The calling thread doesn't care about the
+	 * There is no {@code SendResult} related or error returned. The calling thread doesn't care about the
 	 * send result and also have no context to get the result.
 	 *
 	 * @param message a message will be sent.
 	 */
-	SendOneway(message Message) error
+	SendOneway(message Message)
 
 	/**
 	 * <p>

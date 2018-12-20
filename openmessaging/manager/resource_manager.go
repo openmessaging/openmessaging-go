@@ -62,7 +62,6 @@ type ResourceManager interface {
 	 * @return error when the given timeout elapses before the list operation completes.
 	 * @return error when the {@code ResourceManager} fails to list the namespace due to some internal error.
 	 */
-	 //todo need refactor <set>
 	ListNamespaces() ([]string, error);
 
 	/**
@@ -100,7 +99,6 @@ type ResourceManager interface {
 	 * @return error when the given timeout elapses before the list operation completes.
 	 * @return error when the {@code ResourceManager} fails to list the namespace due to some internal error.
 	 */
-	 //todo
 	ListQueues(nsName string) ([]string, error)
 
 	/**
