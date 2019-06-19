@@ -18,11 +18,11 @@ package openmessaging
 
 type KeyValue interface {
 	/**
-     * Inserts or replaces {@code short} value for the specified key.
-     *
-     * @param key the key to be placed into this {@code KeyValue} object
-     * @param value the value corresponding to <tt>key</tt>
-     */
+	 * Inserts or replaces {@code short} value for the specified key.
+	 *
+	 * @param key the key to be placed into this {@code KeyValue} object
+	 * @param value the value corresponding to <tt>key</tt>
+	 */
 	PutInt16(key string, value int16) (KeyValue, error)
 
 	/**

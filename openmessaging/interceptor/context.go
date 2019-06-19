@@ -22,9 +22,9 @@ import (
 
 type Context interface {
 	/**
-     * Returns the attributes of this {@code Context} instance.
-     *
-     * @return the attributes.
-     */
+	 * Returns the attributes of this {@code Context} instance.
+	 *
+	 * @return the attributes.
+	 */
 	Attributes() (KeyValue, error)
 }

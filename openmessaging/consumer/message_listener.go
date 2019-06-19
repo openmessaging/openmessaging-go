@@ -22,23 +22,23 @@ import (
 
 type Context interface {
 	/**
-     * Acknowledges the specified and consumed message, which is related to this {@code MessageContext}.
-     * <p>
-     * Messages that have been received but not acknowledged may be redelivered.
-     *
-     * @return error if the consumer fails to acknowledge the messages due to some internal error.
-     */
+	 * Acknowledges the specified and consumed message, which is related to this {@code MessageContext}.
+	 * <p>
+	 * Messages that have been received but not acknowledged may be redelivered.
+	 *
+	 * @return error if the consumer fails to acknowledge the messages due to some internal error.
+	 */
 	Ack() error
 }
 
 type MessageListener interface {
 	/**
-     * Callback method to receive incoming messages.
-     * <p>
-     * A message listener should handle different types of {@code Message}.
-     *
-     * @param message the received message object.
-     * @param context the context delivered to the consume thread.
-     */
+	 * Callback method to receive incoming messages.
+	 * <p>
+	 * A message listener should handle different types of {@code Message}.
+	 *
+	 * @param message the received message object.
+	 * @param context the context delivered to the consume thread.
+	 */
 	OnReceived(message Message, context Context) error
 }

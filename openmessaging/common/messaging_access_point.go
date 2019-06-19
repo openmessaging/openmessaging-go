@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package openmessaging
+package common
 
 import (
-	. "github.com/openmessaging-go/openmessaging/producer"
+	"github.com/openmessaging-go/openmessaging"
 	. "github.com/openmessaging-go/openmessaging/consumer"
 	. "github.com/openmessaging-go/openmessaging/manager"
+	. "github.com/openmessaging-go/openmessaging/producer"
 )
 
 type MessagingAccessPoint interface {
 	/**
-     * Returns the target OMS specification version of the specified vendor implementation.
-     *
-     * @return the OMS version of implementation
-     * @see OMS#specVersion
-     */
+	 * Returns the target OMS specification version of the specified vendor implementation.
+	 *
+	 * @return the OMS version of implementation
+	 * @see OMS#specVersion
+	 */
 	Version() (string, error)
 
 	/**
@@ -44,7 +45,7 @@ type MessagingAccessPoint interface {
 	 *
 	 * @return the attributes
 	 */
-	Attributes() (KeyValue, error)
+	Attributes() (openmessaging.KeyValue, error)
 
 	/**
 	 * Creates a new {@code Producer} for the specified {@code MessagingAccessPoint}.

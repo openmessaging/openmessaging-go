@@ -25,17 +25,17 @@ type Producer interface {
 	ServiceLifecycle
 	MessageFactory
 	/**
-     * Sends a message to the specified destination synchronously, the destination should be preset to {@link
-     * Message#headers()}, other header fields as well.
-     *
-     * @param message a message will be sent.
-     * @return the successful {@code SendResult}.
-     * @return error when have no authority to send messages to a given destination.
-     * @return error when an invalid message is specified.
-     * @return error when the given timeout elapses before the send operation completes.
-     * @return error when have no given destination in the server.
-     * @return error when the {@code Producer} fails to send the message due to some internal error.
-     */
+	 * Sends a message to the specified destination synchronously, the destination should be preset to {@link
+	 * Message#headers()}, other header fields as well.
+	 *
+	 * @param message a message will be sent.
+	 * @return the successful {@code SendResult}.
+	 * @return error when have no authority to send messages to a given destination.
+	 * @return error when an invalid message is specified.
+	 * @return error when the given timeout elapses before the send operation completes.
+	 * @return error when have no given destination in the server.
+	 * @return error when the {@code Producer} fails to send the message due to some internal error.
+	 */
 	Send(message Message) (SendResult, error)
 
 	/**

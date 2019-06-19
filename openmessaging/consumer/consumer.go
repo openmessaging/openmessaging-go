@@ -18,20 +18,20 @@ package consumer
 
 import (
 	. "github.com/openmessaging-go/openmessaging"
-	. "github.com/openmessaging-go/openmessaging/interceptor"
+	interceptor "github.com/openmessaging-go/openmessaging/interceptor"
 )
 
 type Consumer interface {
 	ServiceLifecycle
 	/**
-     * Resumes the {@code Consumer} in push model after a suspend.
-     * <p>
-     * This method resumes the {@code Consumer} instance after it was suspended. The instance will not receive new
-     * messages between the suspend and resume calls.
-     *
-     * @return error if the instance has not been suspended.
-     * @see Consumer#suspend()
-     */
+	 * Resumes the {@code Consumer} in push model after a suspend.
+	 * <p>
+	 * This method resumes the {@code Consumer} instance after it was suspended. The instance will not receive new
+	 * messages between the suspend and resume calls.
+	 *
+	 * @return error if the instance has not been suspended.
+	 * @see Consumer#suspend()
+	 */
 	Resume() error
 
 	/**
@@ -110,14 +110,14 @@ type Consumer interface {
 	 *
 	 * @param interceptor an interceptor instance.
 	 */
-	AddInterceptor(interceptor ConsumerInterceptor) error
+	AddInterceptor(interceptor interceptor.ConsumerInterceptor) error
 
 	/**
 	 * Removes an interceptor from this consumer.
 	 *
 	 * @param interceptor an interceptor to be removed.
 	 */
-	RemoveInterceptor(interceptor ConsumerInterceptor) error
+	RemoveInterceptor(interceptor interceptor.ConsumerInterceptor) error
 
 	/**
 	 * Receives the next message from the bind queues of this consumer in pull model.

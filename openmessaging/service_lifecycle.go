@@ -64,9 +64,9 @@ func (this ServiceLifeState) String() string {
 
 type ServiceLifecycle interface {
 	/**
-     * Used for startup or initialization of a service endpoint. A service endpoint instance will be in a ready state
-     * after this method has been completed.
-     */
+	 * Used for startup or initialization of a service endpoint. A service endpoint instance will be in a ready state
+	 * after this method has been completed.
+	 */
 	Start() error
 
 	/**
@@ -80,5 +80,5 @@ type ServiceLifecycle interface {
 	 *
 	 * @return This service current state {@link ServiceLifeState}
 	 */
-	CurrentState() (ServiceLifeState,error)
+	CurrentState() (ServiceLifeState, error)
 }

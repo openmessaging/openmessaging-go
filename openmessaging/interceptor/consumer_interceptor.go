@@ -22,13 +22,13 @@ import (
 
 type ConsumerInterceptor interface {
 	/**
-     * Invoked before the message is actually sent to the network.
-     * <p>
-     * This allows for modification of the message if necessary.
-     *
-     * @param message a message will be sent.
-     * @param attributes the extensible attributes delivered to the intercept thread.
-     */
+	 * Invoked before the message is actually sent to the network.
+	 * <p>
+	 * This allows for modification of the message if necessary.
+	 *
+	 * @param message a message will be sent.
+	 * @param attributes the extensible attributes delivered to the intercept thread.
+	 */
 	PreReceive(message Message, attributes Context) error
 
 	/**

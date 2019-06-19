@@ -18,10 +18,10 @@ package openmessaging
 
 type Message interface {
 	/**
-		 * Returns all the system header fields of the {@code Message} object as a {@code KeyValue}.
-		 *
-		 * @return the system headers of a {@code Message}
-		 */
+	 * Returns all the system header fields of the {@code Message} object as a {@code KeyValue}.
+	 *
+	 * @return the system headers of a {@code Message}
+	 */
 	Headers() (Headers, error)
 
 	/**
