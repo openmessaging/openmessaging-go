@@ -17,15 +17,15 @@ package openmessaging
 
 type MessageFactory interface {
 	/**
-     * Creates a {@code Message} object. A {@code Message} object is used to send a message containing a stream of
-     * uninterpreted bytes.
-     * <p>
-     * The returned {@code Message} object only can be sent to the specified queue.
-     *
-     * @param queueName the target queue to send
-     * @param body the body data for a message
-     * @return the created {@code Message} object
-     * @return error when body exceed the maximum length or others.
-     */
+	 * Creates a {@code Message} object. A {@code Message} object is used to send a message containing a stream of
+	 * uninterpreted bytes.
+	 * <p>
+	 * The returned {@code Message} object only can be sent to the specified queue.
+	 *
+	 * @param queueName the target queue to send
+	 * @param body the body data for a message
+	 * @return the created {@code Message} object
+	 * @return error when body exceed the maximum length or others.
+	 */
 	CreateMessage(queueName string, body []byte) (Message, error)
 }

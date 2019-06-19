@@ -19,10 +19,10 @@ package producer
 type TransactionalResult interface {
 	SendResult
 	/**
-     * The unique transactionId id related to the {@code TransactionResult} instance.
-     *
-     * @return the transactional id
-     */
+	 * The unique transactionId id related to the {@code TransactionResult} instance.
+	 *
+	 * @return the transactional id
+	 */
 	TransactionId() (string, error)
 
 	/**

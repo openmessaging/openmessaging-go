@@ -23,13 +23,13 @@ type Headers interface {
 	* specified destination.
 	* <p>
 	* When a message is received, its destination is equivalent to the {@code Queue} where the message resides in.
-	*/
+	 */
 	SetDestination(destination string) (Headers, error)
 
 	/**
-    * The {@code MESSAGE_ID} header field contains a value that uniquely identifies each message sent by a {@code
-    * Producer}.
-    */
+	 * The {@code MESSAGE_ID} header field contains a value that uniquely identifies each message sent by a {@code
+	 * Producer}.
+	 */
 	SetMessageId(messageId string) (Headers, error)
 
 	/**
@@ -177,10 +177,10 @@ type Headers interface {
 	SetCompression(compression int16) (Headers, error)
 
 	/**
-    * See {@link Headers#setDestination(String)}
-    *
-    * @return destination
-    */
+	 * See {@link Headers#setDestination(String)}
+	 *
+	 * @return destination
+	 */
 	GetDestination() (string, error)
 
 	/**

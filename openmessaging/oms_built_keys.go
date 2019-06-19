@@ -16,9 +16,9 @@
 package openmessaging
 
 /**
-     * The {@code DRIVER_IMPL} key represents the vendor implementation
-     * entry of {@link MessagingAccessPoint}.
-     */
+ * The {@code DRIVER_IMPL} key represents the vendor implementation
+ * entry of {@link MessagingAccessPoint}.
+ */
 const DRIVER_IMPL = "DRIVER_IMPL"
 
 /**

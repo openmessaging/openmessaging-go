@@ -43,6 +43,6 @@ type TransactionStateCheckListener interface {
 	*
 	* @param message the associated message.
 	* @param context the check context.
-	*/
+	 */
 	Check(message Message, context TransactionalContext) error
 }

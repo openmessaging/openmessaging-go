@@ -28,7 +28,7 @@ type ResourceManager interface {
 	* @return error when the given timeout elapses before the create operation completes.
 	* @return error when this given destination has been created in the server.
 	* @return error when the {@code ResourceManager} fails to create namespace due to some internal error.
-	*/
+	 */
 	CreateNamespace(nsName string) error
 
 	/**
@@ -62,7 +62,7 @@ type ResourceManager interface {
 	 * @return error when the given timeout elapses before the list operation completes.
 	 * @return error when the {@code ResourceManager} fails to list the namespace due to some internal error.
 	 */
-	ListNamespaces() ([]string, error);
+	ListNamespaces() ([]string, error)
 
 	/**
 	 * Creates a {@code Queue} resource in the configured namespace with some preset attributes.
