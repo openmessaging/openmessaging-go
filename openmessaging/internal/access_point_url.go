@@ -2,9 +2,10 @@ package internal
 
 import (
 	"fmt"
-	. "git.ucloudadmin.com/paas_vppd/prj-wintersoldier/openmessaging-go/common"
 	"regexp"
 	"strings"
+
+	. "git.ucloudadmin.com/paas_vppd/prj-wintersoldier/openmessaging-go/common"
 )
 
 var (
@@ -27,7 +28,6 @@ type AccessPoint struct {
 	Prefix    string
 	Driver    string
 	AccessKey string
-	SecretKey string
 	Address   string
 	Region    string
 }
@@ -46,7 +46,6 @@ func AccessPointURI(accessPointURL string) (*AccessPoint, error) {
 		Prefix:    authHead[0],
 		Driver:    authHead[1],
 		AccessKey: accessKey,
-		SecretKey: strings.Split(rightData, "@")[0],
 		Address:   strings.Split(url, "/")[0],
 		Region:    strings.Split(url, "/")[1],
 	}, nil
